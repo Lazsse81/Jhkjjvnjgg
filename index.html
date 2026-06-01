@@ -115,15 +115,24 @@ color:#9c6bff; text-transform: uppercase; font-weight: bold; }
         .nav { display: flex; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); }
         .nav-btn {
             flex: 1; padding: 18px 0; border: none; background: none;
-            color: #555; cursor: pointer; transition: 0.3s;
+            color:#9c6bff; cursor: pointer; transition: 0.3s;
             font-size: 10px; font-weight: bold; display: flex;
             flex-direction: column; align-items: center; gap: 8px;
         }
         .nav-btn i { font-size: 22px; }
-        .nav-btn.active { 
-            color: var(--primary); text-shadow: 0 0 15px var(--primary); 
-            background: rgba(178,102,255,.12); border-bottom: 3px solid var(--primary);
-        }
+        .nav-btn.active{
+
+color:#b266ff;
+
+opacity:1;
+
+text-shadow:0 0 10px rgba(178,102,255,.5);
+
+background:rgba(178,102,255,.12);
+
+border-bottom:3px solid #b266ff;
+
+}
 
         .content { flex: 1; padding: 20px; overflow-y: auto; scrollbar-width: none; padding-bottom: 100px; }
         .content::-webkit-scrollbar { display: none; }
@@ -166,10 +175,21 @@ color:#222;
         }
         .switch.on::after { left: 24px; }
 
-        .slider-box {
-            background: rgba(255, 255, 255, 0.05); padding: 16px;
-            border-radius: 15px; margin-bottom: 12px; border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+        .slider-box{
+
+background:rgba(255,255,255,.75);
+
+border:1px solid rgba(178,102,255,.2);
+
+color:#222;
+
+padding:16px;
+
+border-radius:15px;
+
+margin-bottom:12px;
+
+}
         .slider-header { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 12px; color: #aaa; }
         input[type="range"] { width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px; }
 
@@ -189,7 +209,7 @@ border-top: 1px solid rgba(178,102,255,0.4);
             width: 100%; padding: 20px; background: var(--primary); 
             color: white; border: none; border-radius: 18px; 
             font-size: 20px; font-weight: 900; cursor: pointer; margin-top: 10px;
-            box-shadow: 0 5px 25px rgba(255, 0, 51, 0.5);
+            box-shadow:0 5px 25px rgba(178,102,255,.5);
             text-transform: uppercase; letter-spacing: 3px;
             transition: 0.3s;
         }
@@ -293,7 +313,7 @@ border-top: 1px solid rgba(178,102,255,0.4);
         </div>
 
         <footer class="footer">
-            <div style="font-size: 11px; color: #777;">CREDIT: <b style="color:#fff;">VaiperXWIN100</b></div>
+            <div style="font-size: 11px; color: #777;">CREDIT: <b style="color:#b266ff;">ReczssaWIN100</b> </div>
             <div id="status-badge" class="status-badge">OFFLINE</div>
         </footer>
     </div>
