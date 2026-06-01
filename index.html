@@ -16,6 +16,7 @@
     <title>Reczssa WIN100 V4 - MAX</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+<style>
 .panel{
 background-color:#f8f4ff;
 }
@@ -39,7 +40,7 @@ color:#b266ff;
 border-color:#b266ff;
 }
 
-    <style>
+   
         :root {
     --primary: #b266ff;
     --primary-glow: rgba(178,102,255,0.8);
@@ -74,7 +75,7 @@ border-color:#b266ff;
             background-image: url('https://i.postimg.cc/K8RT1rZF/C8B356F6-C035-45CF-8251-20481F418B52.png');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; overflow: hidden;
-            border: 1px solid #222;
+            border:1px solid rgba(178,102,255,.3);
         }
 
         @media (min-width: 500px) {
@@ -93,8 +94,23 @@ border-color:#b266ff;
             background: rgba(255,255,255,0.85);
 border-bottom: 1px solid rgba(178,102,255,0.4);
         }
-        .app-header h1 { margin: 0; font-size: 24px; letter-spacing: 3px; font-weight: 900; text-shadow: 0 0 15px var(--primary); }
-        .app-header span { font-size: 11px; color: var(--primary); text-transform: uppercase; font-weight: bold; }
+        .app-header h1{
+margin:0;
+
+font-size:24px;
+
+letter-spacing:3px;
+
+font-weight:900;
+
+color:#7d3cff;
+
+text-shadow:0 0 20px rgba(178,102,255,.6);
+}
+        .app-header span{
+font-size:11px;
+
+color:#9c6bff; text-transform: uppercase; font-weight: bold; }
 
         .nav { display: flex; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); }
         .nav-btn {
@@ -106,7 +122,7 @@ border-bottom: 1px solid rgba(178,102,255,0.4);
         .nav-btn i { font-size: 22px; }
         .nav-btn.active { 
             color: var(--primary); text-shadow: 0 0 15px var(--primary); 
-            background: rgba(255,0,0,0.1); border-bottom: 3px solid var(--primary);
+            background: rgba(178,102,255,.12); border-bottom: 3px solid var(--primary);
         }
 
         .content { flex: 1; padding: 20px; overflow-y: auto; scrollbar-width: none; padding-bottom: 100px; }
@@ -115,12 +131,25 @@ border-bottom: 1px solid rgba(178,102,255,0.4);
         .tab-page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .item {
-            background: rgba(255, 255, 255, 0.06); padding: 16px;
-            border-radius: 15px; margin-bottom: 12px;
-            display: flex; justify-content: space-between; align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px);
-        }
+        .item{
+background:rgba(255,255,255,.75);
+
+border-radius:15px;
+
+margin-bottom:12px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+border:1px solid rgba(178,102,255,.2);
+
+backdrop-filter:blur(5px);
+
+color:#222;
+}
         .item-label { display: flex; align-items: center; gap: 15px; font-size: 14px; }
         .item-label i { color: var(--primary); font-size: 18px; width: 22px; text-align: center; }
 
