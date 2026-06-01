@@ -17,6 +17,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+
+#keyOverlay{
+position:fixed;
+inset:0;
+
+background:
+rgba(246,242,255,.97);
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+z-index:999999;
+}
+
+.keyLogin{
+
+width:90%;
+max-width:380px;
+
+padding:35px;
+
+border-radius:28px;
+
+background:white;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.15);
+
+text-align:center;
+}
+
+.keyLogin h1{
+
+color:#7d3cff;
+
+margin-bottom:10px;
+
+}
+
+.keyLogin input{
+
+width:100%;
+
+height:58px;
+
+border:none;
+
+outline:none;
+
+padding:0 18px;
+
+background:#f4f4f4;
+
+border-radius:18px;
+
+font-size:16px;
+
+margin-bottom:15px;
+}
+
+.keyLogin button{
+
+width:100%;
+
+height:58px;
+
+border:none;
+
+border-radius:18px;
+
+background:#b266ff;
+
+color:white;
+
+font-size:16px;
+
+font-weight:800;
+}
+
 .panel{
 background-color:#f8f4ff;
 }
@@ -446,6 +527,227 @@ border-top: 1px solid rgba(178,102,255,0.4);
             badge.innerText = "ONLINE";
         }, 1200);
     }
+</script>
+
+<!-- LOGIN OVERLAY -->
+
+<div id="keyOverlay">
+
+<div class="keyLogin">
+
+<h1>RECZSSA LOGIN</h1>
+
+<p style="margin:15px 0;color:#888;">
+กรอกคีย์เพื่อเข้าใช้งาน
+</p>
+
+<input
+id="keyInput"
+placeholder="ENTER KEY"
+/>
+
+<button onclick="checkKey()">
+
+LOGIN
+
+</button>
+
+</div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp }
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+
+getFirestore,
+doc,
+getDoc,
+updateDoc
+
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyCrmHYYvKwJbsSp3sbJcmZIjEECmNNgh3c",
+
+authDomain:
+"reczssa-b396e.firebaseapp.com",
+
+projectId:
+"reczssa-b396e",
+
+storageBucket:
+"reczssa-b396e.firebasestorage.app",
+
+messagingSenderId:
+"1053378935263",
+
+appId:
+"1:1053378935263:web:54cc8d02c8d0af97442c6a"
+
+};
+
+const app=
+initializeApp(firebaseConfig);
+
+const db=
+getFirestore(app);
+
+let deviceId=
+localStorage.getItem("device_id");
+
+if(!deviceId){
+
+deviceId=
+crypto.randomUUID();
+
+localStorage.setItem(
+"device_id",
+deviceId
+);
+
+}
+
+window.checkKey=
+async()=>{
+
+const key=
+document
+.getElementById(
+"keyInput"
+)
+.value
+.trim();
+
+if(!key){
+
+alert("กรอกคีย์");
+
+return;
+
+}
+
+const ref=
+doc(
+db,
+"keys",
+key
+);
+
+const snap=
+await getDoc(
+ref
+);
+
+if(!snap.exists()){
+
+alert("คีย์ผิด");
+
+return;
+
+}
+
+const data=
+snap.data();
+
+if(data.banned){
+
+alert("BANNED");
+
+return;
+
+}
+
+const now=
+new Date();
+
+const expire=
+new Date(
+data.expire
+);
+
+if(now>expire){
+
+alert("KEY EXPIRED");
+
+return;
+
+}
+
+if(
+data.used &&
+data.device!==deviceId
+){
+
+alert(
+"คีย์ถูกใช้แล้ว"
+);
+
+return;
+
+}
+
+if(!data.used){
+
+await updateDoc(
+ref,
+{
+
+used:true,
+
+device:deviceId
+
+}
+
+);
+
+}
+
+localStorage.setItem(
+"saved_key",
+key
+);
+
+document
+.getElementById(
+"keyOverlay"
+)
+.style.display=
+"none";
+
+alert(
+"LOGIN SUCCESS"
+);
+
+};
+
+window.onload=()=>{
+
+const saved=
+localStorage.getItem(
+"saved_key"
+);
+
+if(saved){
+
+document
+.getElementById(
+"keyInput"
+).value=saved;
+
+checkKey();
+
+}
+
+};
+
 </script>
 
 </body>
