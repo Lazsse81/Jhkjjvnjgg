@@ -96,10 +96,13 @@ max-height:920px;
 
 padding:38px 25px 22px;
 
-} text-align: center;
-            background: rgba(255,255,255,0.85);
-border-bottom: 1px solid rgba(178,102,255,0.4);
-        }
+text-align:center;
+
+background:rgba(255,255,255,.85);
+
+border-bottom:1px solid rgba(178,102,255,.4);
+
+}
         .app-header h1{
 margin:0;
 
@@ -114,9 +117,22 @@ color:#7d3cff;
 text-shadow:0 0 20px rgba(178,102,255,.6);
 }
         .app-header span{
+
 font-size:11px;
 
-color:#9c6bff; text-transform: uppercase; font-weight: bold; }
+color:#f1f1f1;
+
+opacity:.88;
+
+letter-spacing:1px;
+
+text-transform:uppercase;
+
+font-weight:700;
+
+text-shadow:0 1px 3px rgba(0,0,0,.15);
+
+}
 
         .nav { display: flex; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); }
         .nav-btn {
@@ -210,8 +226,45 @@ border-radius:15px;
 margin-bottom:12px;
 
 }
-        .slider-header { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 12px; color: #aaa; }
-        input[type="range"] { width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px; }
+        .slider-header{
+
+display:flex;
+
+justify-content:space-between;
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:14px;
+
+color:#6f45d8;
+
+}
+
+.slider-header .val{
+
+color:#b266ff;
+
+font-size:15px;
+
+font-weight:900;
+
+}
+
+        input[type="range"]{
+
+width:100%;
+
+height:10px;
+
+cursor:pointer;
+
+accent-color:#b266ff;
+
+border-radius:999px;
+
+}
 
         .footer {
             padding:20px 28px; background: rgba(255,255,255,0.95);
