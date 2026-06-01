@@ -19,18 +19,37 @@
 <style>
 
 #keyOverlay{
+
 position:fixed;
+
 inset:0;
 
 background:
-rgba(246,242,255,.97);
+
+linear-gradient(
+rgba(255,255,255,.35),
+rgba(255,255,255,.35)
+
+),
+
+url("https://i.postimg.cc/K8RT1rZF/C8B356F6-C035-45CF-8251-20481F418B52.png");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
 
 display:flex;
 
 justify-content:center;
+
 align-items:center;
 
 z-index:999999;
+
+backdrop-filter:blur(8px);
+
 }
 
 .keyLogin{
@@ -96,6 +115,42 @@ color:white;
 font-size:16px;
 
 font-weight:800;
+}
+
+.buyKeyBtn{
+
+width:100%;
+
+height:58px;
+
+border:none;
+
+border-radius:18px;
+
+background:white;
+
+border:2px solid #b266ff;
+
+color:#b266ff;
+
+font-size:16px;
+
+font-weight:800;
+
+margin-top:12px;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+.buyKeyBtn:active{
+
+transform:scale(.97);
+
+opacity:.8;
+
 }
 
 .panel{
@@ -547,8 +602,13 @@ placeholder="ENTER KEY"
 />
 
 <button onclick="checkKey()">
-
 LOGIN
+</button>
+
+<button class="buyKeyBtn"
+onclick="window.open('https://www.tiktok.com/@reczssa325?_r=1&_t=ZS-96qkIWxQ5RM','_blank')">
+
+ซื้อคีย์
 
 </button>
 
