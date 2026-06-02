@@ -852,7 +852,9 @@ document
 
 if(!key){
 
-alert("กรอกคีย์");
+showToast(
+"กรุณาใส่คีย์ก่อน"
+);
 
 return;
 
@@ -896,7 +898,9 @@ snap.data()
 
 if(!snap.exists()){
 
-alert("คีย์ผิด");
+showToast(
+"คีย์ไม่ถูกต้อง"
+);
 
 return;
 
@@ -926,8 +930,8 @@ expire &&
 now > expire
 ){
 
-alert(
-"KEY EXPIRED"
+showToast(
+"คีย์หมดอายุ"
 );
 
 return;
@@ -939,8 +943,8 @@ data.used &&
 data.device !== deviceId
 ){
 
-alert(
-"คีย์ถูกใช้แล้ว"
+showToast(
+"คีย์ถูกใช้งานแล้ว"
 );
 
 return;
@@ -975,8 +979,8 @@ document
 .style.display =
 "none";
 
-alert(
-"LOGIN SUCCESS"
+showToast(
+"เข้าสู่ระบบสำเร็จ"
 );
 
 }catch(err){
@@ -1010,6 +1014,98 @@ checkKey();
 }
 
 };
+
+</script>
+
+<div id="toast">
+
+<span id="toastText"></span>
+
+</div>
+
+<style>
+
+#toast{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:
+translate(-50%,-50%)
+scale(.8);
+
+background:
+rgba(30,30,30,.92);
+
+color:#fff;
+
+padding:
+18px 28px;
+
+border-radius:
+18px;
+
+font-size:16px;
+
+font-weight:700;
+
+z-index:99999999;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.25s;
+
+backdrop-filter:
+blur(12px);
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.35);
+
+}
+
+#toast.show{
+
+opacity:1;
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+}
+
+</style>
+
+<script>
+
+function showToast(text){
+
+const toast=
+document.getElementById(
+"toast"
+);
+
+document.getElementById(
+"toastText"
+).innerText=text;
+
+toast.classList.add(
+"show"
+);
+
+setTimeout(()=>{
+
+toast.classList.remove(
+"show"
+);
+
+},2000);
+
+}
 
 </script>
 
