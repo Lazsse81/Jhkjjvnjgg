@@ -838,10 +838,11 @@ deviceId
 
 }
 
-window.checkKey=
-async()=>{
+window.checkKey = async () => {
 
-const key=
+try{
+
+const key =
 document
 .getElementById(
 "keyInput"
@@ -857,14 +858,14 @@ return;
 
 }
 
-const ref=
+const ref =
 doc(
 db,
 "keys",
 key
 );
 
-const snap=
+const snap =
 await getDoc(
 ref
 );
@@ -877,7 +878,7 @@ return;
 
 }
 
-const data=
+const data =
 snap.data();
 
 if(data.banned){
@@ -888,15 +889,15 @@ return;
 
 }
 
-const now=
+const now =
 new Date();
 
-const expire=
+const expire =
 new Date(
 data.expire
 );
 
-if(now>expire){
+if(now > expire){
 
 alert("KEY EXPIRED");
 
@@ -906,7 +907,7 @@ return;
 
 if(
 data.used &&
-data.device!==deviceId
+data.device !== deviceId
 ){
 
 alert(
@@ -942,12 +943,22 @@ document
 .getElementById(
 "keyOverlay"
 )
-.style.display=
+.style.display =
 "none";
 
 alert(
 "LOGIN SUCCESS"
 );
+
+}catch(err){
+
+console.error(err);
+
+alert(
+"เชื่อมต่อฐานข้อมูลไม่ได้ / Firebase Error"
+);
+
+}
 
 };
 
