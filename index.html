@@ -764,7 +764,9 @@ id="keyInput"
 placeholder="ENTER KEY"
 />
 
-<button onclick="checkKey()">
+<button
+id="loginBtn"
+onclick="checkKey()">
 LOGIN
 </button>
 
@@ -841,6 +843,23 @@ deviceId
 window.checkKey = async () => {
 
 try {
+
+const btn =
+document.getElementById(
+"loginBtn"
+);
+
+btn.disabled=true;
+
+btn.innerText=
+"CHECKING...";
+
+btn.disabled=false;
+
+btn.innerText=
+"LOGIN";
+
+
 
 const key =
 document
@@ -979,6 +998,11 @@ document
 .style.display =
 "none";
 
+btn.disabled=false;
+
+btn.innerText=
+"LOGIN";
+
 showToast(
 "เข้าสู่ระบบสำเร็จ"
 );
@@ -987,8 +1011,8 @@ showToast(
 
 console.error(err);
 
-alert(
-err.message
+showToast(
+"เกิดข้อผิดพลาด กรุณาลองใหม่"
 );
 
 }
