@@ -870,6 +870,15 @@ await getDoc(
 ref
 );
 
+console.log(
+"exists:",
+snap.exists()
+);
+
+console.log(
+snap.data()
+);
+
 if(!snap.exists()){
 
 alert("คีย์ผิด");
@@ -893,13 +902,18 @@ const now =
 new Date();
 
 const expire =
-new Date(
-data.expire
+data.expire?.toDate
+? data.expire.toDate()
+: new Date(data.expire);
+
+if(
+expire &&
+now > expire
+){
+
+alert(
+"KEY EXPIRED"
 );
-
-if(now > expire){
-
-alert("KEY EXPIRED");
 
 return;
 
