@@ -876,6 +876,21 @@ snap.exists()
 );
 
 console.log(
+"data:",
+snap.data()
+);
+
+console.log(
+"device:",
+deviceId
+);
+
+console.log(
+"exists:",
+snap.exists()
+);
+
+console.log(
 snap.data()
 );
 
@@ -964,12 +979,12 @@ alert(
 "LOGIN SUCCESS"
 );
 
-} catch(err){
+}catch(err){
 
 console.error(err);
 
 alert(
-"Firebase Error / Database Error"
+err.message
 );
 
 }
